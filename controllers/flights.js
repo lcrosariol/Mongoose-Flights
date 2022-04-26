@@ -1,3 +1,5 @@
+const res = require('express/lib/response');
+//import the flight Schema, in order to create the flight object
 const Flight = require('../models/flight');
 
 function index(req, res) {
@@ -23,12 +25,12 @@ function show(req, res) {
 }
 
 function create(req, res) {
-//   if (req.body.departs) {  
+    if (req.body.departs === '') delete req.body.departs;   
     const flight = new Flight(req.body);
     flight.save(function(err){
         if(err) return res.render('flights/new');
         console.log(flight);
-        res.redirect('/flights');
+        res.redirect(`/flights/${flight.id}`);
     });
     
     //return the user to the index page
