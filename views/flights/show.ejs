@@ -15,26 +15,26 @@
     </nav>
     <main>
     <section id="show-page">
-    <div>Airline: </div>
-    <div><%= flight.airline %></div>
-    <div>Airport: </div>
-    <div><%= flight.airport %></div>
-    <div>Flight Number: </div>
-    <div><%= flight.flightNo %></div>
-    <div>Departure: </div>
-    <div><%= flight.departs %></div>
+      <div>Airline: </div>
+      <div><%= flight.airline %></div>
+      <div>Airport: </div>
+      <div><%= flight.airport %></div>
+      <div>Flight Number: </div>
+      <div><%= flight.flightNo %></div>
+      <div>Departure: </div>
+      <div><%= flight.departs %></div>
     </section>
-    <form id="add-review-form" method="POST"
-    action="/flights/<%= flight._id %>/destinations">
-    <label>Destination:</label>
-    <select name="Airport">
+    <form id="add-destination-form" method="POST"
+      action="/flights/<%= flight._id %>/destinations">
+      <label>Destination:</label>
+      <select name="Airport">
         <option value="KDEN" selected>KDEN</option>
         <option value="KDFW">KDFW</option>
         <option value="KAUS">KAUS</option>
         <option value="KLAX">KLAX</option>
         <option value="KSAN">KSAN</option>
-    </select>
-    <input type="submit" value="Add Destination">
+      </select>
+      <input type="submit" value="Add Destination">
     </form>
     <% if (flight.destinations.length) { %>
     <table>
