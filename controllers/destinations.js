@@ -2,7 +2,7 @@ const Flight = require('../models/flight');
 
 function create(req, res) {
     // console.log("calling create");
-    // console.log(req.params.id);
+    console.log(req.params.id);
     Flight.findById(req.params.id, function(error, flight){
         flight.destinations.push(req.body);
         flight.save(function(err) {

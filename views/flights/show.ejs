@@ -17,8 +17,9 @@
     </section>
     <form id="add-destination-form" method="POST"
       action="/flights/<%= flight._id %>/destinations">
+      <input type="datetime-local" name="arrival">
       <label>Destination:</label>
-      <select name="Airport">
+      <select name="airport"> 
         <option value="KDEN" selected>KDEN</option>
         <option value="KDFW">KDFW</option>
         <option value="KAUS">KAUS</option>

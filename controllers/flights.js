@@ -21,6 +21,7 @@ function newFlight(req, res) {
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
         res.render('flights/show', { title: 'Flight Details', flight });
+        console.log(flight);
     });
 }
 
@@ -30,7 +31,7 @@ function create(req, res) {
     flight.save(function(err){
         if(err) return res.render('flights/new');
         console.log(flight);
-        res.redirect(`/flights/${flight.id}`);
+        res.redirect('/flights');
     });
     
     //return the user to the index page
