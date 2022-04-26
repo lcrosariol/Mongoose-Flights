@@ -19,18 +19,14 @@
     <div><%= flight.airline %></div>
     <div>Airport: </div>
     <div><%= flight.airport %></div>
-    <div>FlightNo: </div>
+    <div>Flight Number: </div>
     <div><%= flight.flightNo %></div>
     <div>Departure: </div>
     <div><%= flight.departs %></div>
-    <div>Destination: </div>
-    <div><%= flight.destination %></div>
     </section>
-    <br><br><h2>FLIGHT DETAILS</h2>
+    <br><br><h2>Destination:</h2>
     <form id="add-review-form" method="POST"
     action="/flights/<%= flight._id %>/destinations">
-    <label>Airport:</label>
-    <textarea name="content"></textarea>
     <label>Airport:</label>
     <select name="Airport">
         <option value="DEN" selected>DEN</option>
@@ -39,14 +35,14 @@
         <option value="LAX">LAX</option>
         <option value="SAN">SAN</option>
     </select>
-    <input type="submit" value="Add Review">
+    <input type="submit" value="Add Destination">
     </form>
     <% if (flight.destinations.length) { %>
     <table>
         <thead>
         <tr>
             <th>Destination</th>
-            <th>Arrival</th>
+            <th>Arrival Date</th>
         </tr>
         </thead>
         <tbody>
@@ -59,7 +55,7 @@
         </tbody>
     </table>
     <% } else { %>
-        <h5>No Flights Yet</h5>
+        <h5>No Destinations Yet</h5>
     <% } %>
     </main>
 </body>

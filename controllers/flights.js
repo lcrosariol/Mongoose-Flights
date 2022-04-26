@@ -11,7 +11,7 @@ function newFlight(req, res) {
     const newFlight = new Flight();
     // //obtain the default date
     const dt = newFlight.departs;
-    // //format the date for the value attribute of the input
+    // // //format the date for the value attribute of the input
     let departsDate = dt.toISOString().slice(0, 16);
     res.render('flights/new', { title: 'Add Flight', departsDate });
 }
@@ -23,14 +23,14 @@ function show(req, res) {
 }
 
 function create(req, res) {
-    
+//   if (req.body.flightNo) {  
     const flight = new Flight(req.body);
     flight.save(function(err){
-        if(err) return res.redirect('flights/new');
+        if(err) return res.render('flights/new');
         console.log(flight);
         res.redirect('/flights');
     });
-
+    
     //return the user to the index page
     
 }
