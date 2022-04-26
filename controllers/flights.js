@@ -23,7 +23,7 @@ function show(req, res) {
 }
 
 function create(req, res) {
-//   if (req.body.flightNo) {  
+//   if (req.body.departs) {  
     const flight = new Flight(req.body);
     flight.save(function(err){
         if(err) return res.render('flights/new');

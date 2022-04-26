@@ -24,34 +24,33 @@
     <div>Departure: </div>
     <div><%= flight.departs %></div>
     </section>
-    <br><br><h2>Destination:</h2>
     <form id="add-review-form" method="POST"
     action="/flights/<%= flight._id %>/destinations">
-    <label>Airport:</label>
+    <label>Destination:</label>
     <select name="Airport">
-        <option value="DEN" selected>DEN</option>
-        <option value="DFW">DFW</option>
-        <option value="AUS">AUS</option>
-        <option value="LAX">LAX</option>
-        <option value="SAN">SAN</option>
+        <option value="KDEN" selected>KDEN</option>
+        <option value="KDFW">KDFW</option>
+        <option value="KAUS">KAUS</option>
+        <option value="KLAX">KLAX</option>
+        <option value="KSAN">KSAN</option>
     </select>
     <input type="submit" value="Add Destination">
     </form>
     <% if (flight.destinations.length) { %>
     <table>
         <thead>
-        <tr>
+          <tr>
             <th>Destination</th>
             <th>Arrival Date</th>
-        </tr>
+          </tr>
         </thead>
         <tbody>
-        <% flight.destinations.forEach(function(r) { %>
+          <% flight.destinations.forEach(function(r) { %>
             <tr>
-            <td><%= r.airport %></td>
-            <td><%= r.arrival %></td>
+              <td><%= r.airport %></td>
+              <td><%= r.arrival %></td>
             </tr>
-        <% }); %>
+          <% }); %>
         </tbody>
     </table>
     <% } else { %>
