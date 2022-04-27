@@ -1,42 +1,36 @@
-const res = require('express/lib/response');
+// const res = require('express/lib/response');
 //import the flight Schema, in order to create the flight object
 const Flight = require('../models/flight');
+const Ticket = require('../models/ticket');
 
 function index(req, res) {
     Flight.find({}, function(err, flights) {
-        res.render('flights/index', { title: 'All Flights', flights });
+        if (err) return res.redirect('/');
+        res.render('flights/index', {flights});
         });
 }
 // when the user visits 
 // http://localhost:3000/flights/view
 function newFlight(req, res) {
-    const newFlight = new Flight();
-    // //obtain the default date
-    const dt = newFlight.departs;
-    // // //format the date for the value attribute of the input
-    let departsDate = dt.toISOString().slice(0, 16);
-    res.render('flights/new', { title: 'Add Flight', departsDate });
+    res.render('flights/new');
 }
 
 function show(req, res) {
     Flight.findById(req.params.id, function(err, flight) {
-        res.render('flights/show', { title: 'Flight Details', flight });
-        console.log(flight);
+        Ticket.find({flight: flight._id}, function(err, tickets){
+        res.render('flights/show', {title: 'Flight Details', flight, tickets});
     });
+});
 }
 
 function create(req, res) {
     if (req.body.departs === '') delete req.body.departs;   
-    const flight = new Flight(req.body);
-    flight.save(function(err){
-        if(err) return res.render('flights/new');
-        console.log(flight);
-        res.redirect('/flights');
-    });
-    
+    Flight.create(req.body);
+    res.redirect('flights');
+}
+
     //return the user to the index page
     
-}
 
 
 
