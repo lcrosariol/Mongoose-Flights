@@ -1,9 +1,9 @@
     <%- include('../partials/header') %>
-<nav><a href="/flights/new">ADD A FLIGHT</a><a href="/flights">ALL FLIGHTS</a></nav>
+<nav><a href="/flights/new">ADD A FLIGHT</a><br><a href="/flights">ALL FLIGHTS</a></nav>
 <body>
     <h2>Enter a New Flight</h2>
 <form id="new-form" action="/flights" method="POST">
-    <label>Airline:</label><br>
+    <label>Airline</label><br>
         <select name="airline">
             <option selected>Choose Airline</option>
             <option value="American">American</option>

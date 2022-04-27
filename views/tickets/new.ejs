@@ -1,11 +1,15 @@
     <%- include('../partials/header') %>
-    
+    <h2>Please choose a seat from A-F, and 1-9. Example: B6</h2>
     <form id="add-ticket-form" method="POST" action="/flights/<%= flightId %>/tickets">
       <input name="seat" required pattern="[A-F][1-9]\d?">
       <label>Seat:</label>
-      <input name="price" value="type">
+      <input name="price">
+      
+      
       <label>Price:</label>
       <input type="submit">
+      
+
     </form>
 
     <%- include('../partials/footer') %>
